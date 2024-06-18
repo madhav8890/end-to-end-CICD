@@ -8,8 +8,7 @@ steps:
   args:
   - '-c'
   - |
-    date
-    # gcloud container clusters get-credentials sumit-cluster-1	 --zone us-central1-c  --project sumit-gcp-practice
-    # helm upgrade --install todo-app ./helm/madhav
+    gcloud container clusters get-credentials sumit-cluster-1	 --zone us-central1-c  --project sumit-gcp-practice
+   
 
 
