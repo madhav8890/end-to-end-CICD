@@ -8,11 +8,7 @@ steps:
   args:
   - '-c'
   - |
-    gcloud container clusters get-credentials $CLUSTER_NAME --zone $ZONE --project $PROJECT_ID
+    gcloud container clusters get-credentials sumit-cluster-1	 --zone us-central1-c  --project sumit-gcp-practice
     helm upgrade --install todo-app ./helm/madhav
-env:
-- 'CLOUDSDK_COMPUTE_ZONE=$ZONE'
-- 'CLOUDSDK_CONTAINER_CLUSTER=$CLUSTER_NAME'
-- 'PROJECT_ID=$PROJECT_ID'
 
 
