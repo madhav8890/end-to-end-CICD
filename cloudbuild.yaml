@@ -8,5 +8,3 @@ steps:
 - name: 'gcr.io/cloud-builders/helm'
   args: ['upgrade', '--install', 'todo-app', './helm/todo-app']
 
-  env:
-  - 'CLOUDSDK_CONTAINER_CLUSTER=$CLUSTER_NAME'
