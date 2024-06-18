@@ -9,5 +9,4 @@ steps:
   args: ['upgrade', '--install', 'todo-app', './helm/todo-app']
 
   env:
-  - 'CLOUDSDK_COMPUTE_ZONE=$ZONE'
   - 'CLOUDSDK_CONTAINER_CLUSTER=$CLUSTER_NAME'
