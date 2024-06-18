@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: todo-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: todo-app
+  template:
+    metadata:
+      labels:
+        app: todo-app
+    spec:
+      containers:
+      - name: todo-app
+        image: gcr.io/$PROJECT_ID/todo-app:latest
+        ports:
+        - containerPort: 5000
+        env:
+        - name: DB_HOST
+          value: $DB_HOST
+        - name: DB_NAME
+          value: $DB_NAME
+        - name: DB_USER
+          value: $DB_USER
+        - name: DB_PASSWORD
+          value: $DB_PASSWORD
+

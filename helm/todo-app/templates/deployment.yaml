@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "todo-app.fullname" . }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ include "todo-app.name" . }}
+  template:
+    metadata:
+      labels:
+        app: {{ include "todo-app.name" . }}
+    spec:
+      containers:
+      - name: {{ .Chart.Name }}
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        ports:
+        - containerPort: 5000
+        env:
+        - name: DB_HOST
+          value: {{ .Values.env.DB_HOST }}
+        - name: DB_NAME
+          value: {{ .Values.env.DB_NAME }}
+        - name: DB_USER
+          value: {{ .Values.env.DB_USER }}
+        - name: DB_PASSWORD
+          value: {{ .Values.env.DB_PASSWORD }}

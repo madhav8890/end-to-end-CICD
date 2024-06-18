@@ -1,0 +1,18 @@
+replicaCount: 3
+
+image:
+  repository: gcr.io/$PROJECT_ID/todo-app
+  tag: latest
+  pullPolicy: Always
+
+service:
+  type: LoadBalancer
+  port: 80
+
+env:
+  DB_HOST: $DB_HOST
+  DB_NAME: $DB_NAME
+  DB_USER: $DB_USER
+  DB_PASSWORD: $DB_PASSWORD
+
+resources: {}
