@@ -1,14 +1,23 @@
 steps:
-- name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'gcr.io/$PROJECT_ID/madhav:latest', '.']
-- name: 'gcr.io/cloud-builders/docker'
-  args: ['push', 'gcr.io/$PROJECT_ID/madhav:latest']
 - name: 'gcr.io/cloud-builders/gcloud'
   entrypoint: 'bash'
   args:
   - '-c'
   - |
-    gcloud container clusters get-credentials sumit-cluster-1	 --zone us-central1-c  --project sumit-gcp-practice
+    echo Y | gcloud auth configure-docker gcr.io
+
+# Step 0: Set up the Kubernetes cluster context
+- name: 'gcr.io/cloud-builders/gcloud'
+  entrypoint: 'bash'
+  args:
+  - '-c'
+  - |
+    gcloud container clusters get-credentials sumit-cluster --zone asia-south1-c --project sumit-gcp-practice &&
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'gcr.io/$PROJECT_ID/madhav:latest', '.']
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['push', 'gcr.io/$PROJECT_ID/madhav:latest']
+
    
 
 
