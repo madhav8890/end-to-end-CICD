@@ -1,16 +1,16 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "todo-app.fullname" . }}
+  name: {{ include "todo-madhav.fullname" . }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app: {{ include "todo-app.name" . }}
+      app: {{ include "todo-madhav.name" . }}
   template:
     metadata:
       labels:
-        app: {{ include "todo-app.name" . }}
+        app: {{ include "todo-madhav.name" . }}
     spec:
       containers:
       - name: {{ .Chart.Name }}

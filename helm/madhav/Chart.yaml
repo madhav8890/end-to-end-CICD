@@ -1,4 +1,4 @@
 apiVersion: v2
-name: todo-app
+name: todo-madhav
 description: A Helm chart for deploying a Python TODO app
 version: 0.1.0

@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "todo-app.fullname" . }}
+  name: {{ include "todo-madhav.fullname" . }}
 spec:
   type: {{ .Values.service.type }}
   ports:
     - port: {{ .Values.service.port }}
       targetPort: 5000
   selector:
-    app: {{ include "todo-app.name" . }}
+    app: {{ include "todo-madhav.name" . }}
