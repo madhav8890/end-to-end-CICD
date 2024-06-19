@@ -1,11 +1,11 @@
 steps:
   # Step 0: Configure Docker authentication
-  - name: 'gcr.io/cloud-builders/gcloud'
-    entrypoint: 'bash'
-    args:
-      - '-c'
-      - |
-          echo Y | gcloud auth configure-docker gcr.io
+  # - name: 'gcr.io/cloud-builders/gcloud'
+  #   entrypoint: 'bash'
+  #   args:
+  #     - '-c'
+  #     - |
+  #         echo Y | gcloud auth configure-docker gcr.io
 
   # Step 1: Set up the Kubernetes cluster context
   - name: 'gcr.io/cloud-builders/gcloud'
