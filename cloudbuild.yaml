@@ -15,7 +15,7 @@ steps:
     args:
       - '-c'
       - |
-          gcloud container clusters get-credentials sumit-cluster --zone asia-south1-c --project sumit-gcp-practice
+          gcloud container clusters get-credentials sumit-cluster-1 --zone us-central1-c
 
   # Step 2: Build Docker image
   - name: 'gcr.io/cloud-builders/docker'
