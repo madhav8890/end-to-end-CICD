@@ -14,7 +14,7 @@ steps:
     args:
     - '-c'
     - |
-      gcloud container clusters get-credentials sumit-cluster-1 --zone us-central1-c
+      gcloud container clusters get-credentials sumit-cluster-1 --zone us-central1-c --project sumit-project-422112
       curl -LO https://get.helm.sh/helm-v3.6.3-linux-amd64.tar.gz
       tar -zxvf helm-v3.6.3-linux-amd64.tar.gz
       mv linux-amd64/helm /usr/local/bin/helm
