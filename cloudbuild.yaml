@@ -1,22 +1,6 @@
 options:
   logging: CLOUD_LOGGING_ONLY
 steps:
-  # Step 0: Configure Docker authentication
-  # - name: 'gcr.io/cloud-builders/gcloud'
-  #   entrypoint: 'bash'
-  #   args:
-  #     - '-c'
-  #     - |
-  #         echo Y | gcloud auth configure-docker gcr.io
-
-  # Step 1: Set up the Kubernetes cluster context
-  - name: 'gcr.io/cloud-builders/gcloud'
-    entrypoint: 'bash'
-    args:
-      - '-c'
-      - |
-          gcloud container clusters get-credentials sumit-cluster-1 --zone us-central1-c
-
   # Step 2: Build Docker image
   - name: 'gcr.io/cloud-builders/docker'
     args: ['build', '-t', 'gcr.io/$PROJECT_ID/madhav:latest', '.']
@@ -24,3 +8,15 @@ steps:
   # Step 3: Push Docker image to Container Registry
   - name: 'gcr.io/cloud-builders/docker'
     args: ['push', 'gcr.io/$PROJECT_ID/madhav:latest']
+
+  - name: 'gcr.io/cloud-builders/gcloud'
+    entrypoint: 'bash'
+    args:
+    - '-c'
+    - |
+      gcloud container clusters get-credentials sumit-cluster-1 --zone us-central1-c
+      curl -LO https://get.helm.sh/helm-v3.6.3-linux-amd64.tar.gz
+      tar -zxvf helm-v3.6.3-linux-amd64.tar.gz
+      mv linux-amd64/helm /usr/local/bin/helm
+      helm version
+      helm upgrade --install todo-app ./helm/todo-app
