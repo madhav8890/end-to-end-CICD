@@ -1,3 +1,5 @@
+options:
+  logging: NONE
 steps:
   # Step 0: Configure Docker authentication
   # - name: 'gcr.io/cloud-builders/gcloud'
