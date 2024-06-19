@@ -19,4 +19,4 @@ steps:
       tar -zxvf helm-v3.6.3-linux-amd64.tar.gz
       mv linux-amd64/helm /usr/local/bin/helm
       helm version
-      helm upgrade --install todo-app ./helm/todo-app
+      helm upgrade --install todo-app ./helm/madhav
