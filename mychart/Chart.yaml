@@ -1,4 +1,6 @@
 apiVersion: v2
-name: todo-madhav
+name: mychart
 description: A Helm chart for deploying a Python TODO app
 version: 0.1.0
+type: application
+appVersion: "1.16.0"
